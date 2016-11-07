@@ -1,0 +1,43 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+    <!-- 数据库连接池 -->
+    <!-- 加载配置文件 -->
+    <context:property-placeholder location="classpath:properties/*.properties" />
+    <!-- 数据库连接池 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          destroy-method="close">
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="maxActive" value="10" />
+        <property name="minIdle" value="5" />
+    </bean>
+    <!-- 配置mybatis的SessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+       <!-- <property name="mapperLocations" value="classpath:/mybatis/mappers/**/*.xml"/>-->
+        <property name="typeAliasesPackage" value="com.migo.pojo"/>
+
+    </bean>
+
+    <!-- 自动扫描注册Mybatis mapper -->
+    <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.migo.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <!--下面这个配置可以不写，默认就是这个-->
+        <property name="properties">
+            <value>
+                mappers=tk.mybatis.mapper.common.Mapper
+            </value>
+        </property>
+    </bean>
+
+
+</beans>
