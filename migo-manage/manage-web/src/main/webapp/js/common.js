@@ -116,7 +116,8 @@ var TT = migo = {
     			    onOpen : function(){
     			    	var _win = this;
     			    	$("ul",_win).tree({
-    			    		url:'/rest/item/cat/list',
+    			    		url:'/rest/item/cat/',
+							method:"GET",
     			    		animate:true,
     			    		onClick : function(node){
     			    			if($(this).tree("isLeaf",node.target)){
