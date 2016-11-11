@@ -27,21 +27,24 @@ public class ItemCatController {
      */
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<ItemCat>> getItemCatList(
-            @RequestParam(value = "id",defaultValue = "0") Long parentId
-    ){
+public ResponseEntity<List<ItemCat>> getItemCatList(
+        @RequestParam(value = "id",defaultValue = "0") Long parentId
+){
 
-        try {
-            List<ItemCat> itemcats=itemCatService.getItemCatList(parentId);
-            if (null==itemcats&&itemcats.isEmpty()){
-                //资源不存在，响应404
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-            }
-            return  ResponseEntity.ok(itemcats);
-        } catch (Exception e) {
-            e.printStackTrace();
-            // 出错，响应500
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    try {
+        //List<ItemCat> itemcats=itemCatService.getItemCatList(parentId);
+        ItemCat example=new ItemCat();
+        example.setParentId(parentId);
+        List<ItemCat> itemCats = itemCatService.queryListByWhere(example);
+        if (null==itemCats&&itemCats.isEmpty()){
+            //资源不存在，响应404
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
+        return  ResponseEntity.ok(itemCats);
+    } catch (Exception e) {
+        e.printStackTrace();
+        // 出错，响应500
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
     }
+}
 }

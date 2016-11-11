@@ -23,7 +23,10 @@ public class Test {
     private ItemCatService itemCatService;
     @org.junit.Test
     public void test1(){
-        List<ItemCat> itemCatList = itemCatService.getItemCatList(0L);
+       // List<ItemCat> itemCatList = itemCatService.getItemCatList(0L);
+        ItemCat example=new ItemCat();
+        example.setParentId(0L);
+        List<ItemCat> itemCatList = itemCatService.queryListByWhere(example);
         logger.info(JSON.toJSONString(itemCatList));
     }
 
