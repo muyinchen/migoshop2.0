@@ -20,7 +20,7 @@ public class PicController {
     @Autowired
     private PicService picService;
 
-    @RequestMapping("/rest/pic/upload")
+    @RequestMapping("/pic/upload")
     @ResponseBody
     public String uploadFile(MultipartFile uploadFile){
         Map result = picService.uploadFile(uploadFile);

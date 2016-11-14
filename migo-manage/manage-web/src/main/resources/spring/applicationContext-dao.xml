@@ -24,6 +24,25 @@
         <property name="dataSource" ref="dataSource"/>
        <!-- <property name="mapperLocations" value="classpath:/mybatis/mappers/**/*.xml"/>-->
         <property name="typeAliasesPackage" value="com.migo.pojo"/>
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageHelper">
+                    <!-- 这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置 -->
+                    <property name="properties">
+                        <value>
+                            dialect=mysql
+                            <!--! 3.3.0版本可用 - 分页参数合理化，默认false禁用-->
+                            <!-- 启用合理化时，如果pageNum<1会查询第一页，如果pageNum>pages会查询最后一页 -->
+                            <!-- 禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据 -->
+                            reasonable=true
+                            supportMethodsArguments=true
+                            params=count=countSql
+                            autoRuntimeDialect=true
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
 
     </bean>
 

@@ -1,6 +1,9 @@
 package test;
 
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageHelper;
+import com.migo.mapper.ItemMapper;
+import com.migo.pojo.Item;
 import com.migo.pojo.ItemCat;
 import com.migo.service.ItemCatService;
 import org.apache.log4j.Logger;
@@ -21,6 +24,8 @@ public class Test {
     private static Logger logger=Logger.getLogger(Test.class);
     @Resource
     private ItemCatService itemCatService;
+    @Resource
+    private ItemMapper itemMapper;
     @org.junit.Test
     public void test1(){
        // List<ItemCat> itemCatList = itemCatService.getItemCatList(0L);
@@ -28,6 +33,14 @@ public class Test {
         example.setParentId(0L);
         List<ItemCat> itemCatList = itemCatService.queryListByWhere(example);
         logger.info(JSON.toJSONString(itemCatList));
+    }
+    @org.junit.Test
+    public void test(){
+        PageHelper.startPage(1, 20); // 核心分页代码
+        List<Item> cls =  itemMapper.selectAll();
+        for (Item item : cls) {
+            System.out.println(item.getTitle());
+        }
     }
 
 }

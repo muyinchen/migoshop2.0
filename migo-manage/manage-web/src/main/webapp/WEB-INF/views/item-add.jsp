@@ -114,16 +114,22 @@
 		
 		//提交到后台的RESTful
 		$.ajax({
-		   type: "POST",
-		   url: "/rest/item",
-		   data: $("#itemAddForm").serialize(),
-		   success: function(msg){
-			   $.messager.alert('提示','新增商品成功!');
-		   },
-		   error: function(){
-			   $.messager.alert('提示','新增商品失败!');
+	   type: "POST",
+	   url: "/rest/item",
+	   data: $("#itemAddForm").serialize(),//表单序列化,不明白查api
+	   statusCode : {
+			   201 : function(){
+				   $.messager.alert('提示','新增商品成功!');
+			   },
+				400 : function(){
+				   $.messager.alert('提示','提交的参数不合法!');
+			   },
+			   500 : function(){
+				   $.messager.alert('提示','新增商品失败!');
+			   }
 		   }
-		});
+
+	});
 	}
 	
 	function clearForm(){

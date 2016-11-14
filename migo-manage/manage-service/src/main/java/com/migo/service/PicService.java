@@ -21,7 +21,7 @@ public class PicService {
     public Map uploadFile(MultipartFile uploadFile){
 
         try {
-            FastDFSClient client=new FastDFSClient("classpath:properties/env.properties");
+            FastDFSClient client=new FastDFSClient("classpath:properties/client.properties");
             //获取图片原始名称
             String filename = uploadFile.getOriginalFilename();
             //取扩展名
