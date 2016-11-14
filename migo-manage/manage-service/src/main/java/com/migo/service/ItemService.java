@@ -74,5 +74,20 @@ public class ItemService extends BaseService<Item> {
     /**
      * 商品修改
      */
-    
+    public Boolean updateItem(Item item,String desc){
+        //强制设置不能更新的字段为空,防止恶意修改
+        item.setStatus(null);
+        item.setCreated(null);
+
+        Integer change1 = super.updateSelective(item);
+
+        //更新商品描述
+        ItemDesc itemDesc=new ItemDesc();
+        itemDesc.setItemId(item.getId());
+        itemDesc.setItemDesc(desc);
+        Integer change2 = this.itemDescService.updateSelective(itemDesc);
+
+        return change1.intValue()==1&&change2.intValue()==1;
+
+    }
 }

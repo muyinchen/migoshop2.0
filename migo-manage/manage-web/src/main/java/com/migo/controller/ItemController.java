@@ -75,4 +75,40 @@ public class ItemController {
         }
     }
 
+    /**
+     * 更新商品数据
+     */
+    @RequestMapping(method = RequestMethod.PUT)
+    public ResponseEntity<Void> updateItem(Item item, @RequestParam("desc") String desc){
+        if (LOGGER.isInfoEnabled()) {
+            LOGGER.info("修改商品，item = {}, desc = {}", item, desc);
+        }
+        /**
+         * TODO 校验以后完善
+         */
+        if (item.getPrice() == null || item.getPrice().intValue() == 0) {
+            if (LOGGER.isInfoEnabled()) {
+                LOGGER.info("修改商品时用户输入的参数不合法，item = {}, desc = {}", item, desc);
+            }
+            // 参数有误，返回400
+            //ResponseEntity<Void> build();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+
+        try {
+            Boolean updateItem = this.itemService.updateItem(item, desc);
+            if (updateItem) {
+                if (LOGGER.isInfoEnabled()) {
+                    LOGGER.info("修改商品成功! id = {}", item.getId());
+                }
+                //CREATED(201, "Created"),
+                return ResponseEntity.status(HttpStatus.CREATED).build();
+            }
+        } catch (Exception e) {
+            LOGGER.error("修改商品失败! item = " + item + ", desc = " + desc, e);
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
+
 }
