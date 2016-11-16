@@ -28,7 +28,8 @@ public class ItemController {
      * 新增商品
      */
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> addItem(Item item, @RequestParam("desc") String desc) {
+    public ResponseEntity<Void> addItem(Item item, @RequestParam("desc") String desc,
+                                        @RequestParam("itemParams") String itemParams) {
 
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info("新增商品，item = {}, desc = {}", item, desc);
@@ -38,7 +39,7 @@ public class ItemController {
          */
         if (item.getPrice() == null || item.getPrice().intValue() == 0) {
             if (LOGGER.isInfoEnabled()) {
-                LOGGER.info("新增商品时用户输入的参数不合法，item = {}, desc = {}", item, desc);
+                LOGGER.info("新增商品时用户输入的参数不合法，item = {}, desc = {},itemParams", item, desc);
             }
             // 参数有误，返回400
             //ResponseEntity<Void> build();
@@ -46,7 +47,7 @@ public class ItemController {
         }
 
         try {
-            Boolean saveItem = this.itemService.saveItem(item, desc);
+            Boolean saveItem = this.itemService.saveItem(item, desc,itemParams);
             if (saveItem) {
                 if (LOGGER.isInfoEnabled()) {
                     LOGGER.info("新增商品成功! id = {}", item.getId());
@@ -79,7 +80,8 @@ public class ItemController {
      * 更新商品数据
      */
     @RequestMapping(method = RequestMethod.PUT)
-    public ResponseEntity<Void> updateItem(Item item, @RequestParam("desc") String desc){
+    public ResponseEntity<Void> updateItem(Item item, @RequestParam("desc") String desc,
+                                           @RequestParam("itemParams") String itemParams){
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info("修改商品，item = {}, desc = {}", item, desc);
         }
@@ -96,7 +98,7 @@ public class ItemController {
         }
 
         try {
-            Boolean updateItem = this.itemService.updateItem(item, desc);
+            Boolean updateItem = this.itemService.updateItem(item, desc,itemParams);
             if (updateItem) {
                 if (LOGGER.isInfoEnabled()) {
                     LOGGER.info("修改商品成功! id = {}", item.getId());

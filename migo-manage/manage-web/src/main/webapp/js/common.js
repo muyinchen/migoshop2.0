@@ -184,30 +184,39 @@ var TT = migo = {
     },
     
     changeItemParam : function(node,formId){
-    	$.getJSON("/rest/item/param/query/itemcatid/" + node.id,function(data){
-			  if(data.status == 200 && data.data){
-				 $("#"+formId+" .params").show();
-				 var paramData = JSON.parse(data.data.paramData);
-				 var html = "<ul>";
-				 for(var i in paramData){
-					 var pd = paramData[i];
-					 html+="<li><table>";
-					 html+="<tr><td colspan=\"2\" class=\"group\">"+pd.group+"</td></tr>";
-					 
-					 for(var j in pd.params){
-						 var ps = pd.params[j];
-						 html+="<tr><td class=\"param\"><span>"+ps+"</span>: </td><td><input autocomplete=\"off\" type=\"text\"/></td></tr>";
-					 }
-					 
-					 html+="</li></table>";
-				 }
-				 html+= "</ul>";
-				 $("#"+formId+" .params td").eq(1).html(html);
-			  }else{
-				 $("#"+formId+" .params").hide();
-				 $("#"+formId+" .params td").eq(1).empty();
-			  }
-		  });
+    	$.ajax({
+			   type: "GET",
+			   url: "/rest/item/param/" + node.id,
+			   statusCode : {
+				   200 : function(data){
+					   $("#"+formId+" .params").show();
+						 var paramData = JSON.parse(data.paramData);
+						 var html = "<ul>";
+						 for(var i in paramData){
+							 var pd = paramData[i];
+							 html+="<li><table>";
+							 html+="<tr><td colspan=\"2\" class=\"group\">"+pd.group+"</td></tr>";
+							 
+							 for(var j in pd.params){
+								 var ps = pd.params[j];
+								 html+="<tr><td class=\"param\"><span>"+ps+"</span>: </td><td><input autocomplete=\"off\" type=\"text\"/></td></tr>";
+							 }
+							 
+							 html+="</li></table>";
+						 }
+						 html+= "</ul>";
+						 $("#"+formId+" .params td").eq(1).html(html);
+				   },
+				   404 : function(){
+					   $("#"+formId+" .params").hide();
+					   $("#"+formId+" .params td").eq(1).empty();
+				   },
+				   500 : function(){
+					   alert("error");
+				   }
+			   }
+			});
+
     },
     getSelectionsIds : function (select){
     	var list = $(select);
