@@ -20,6 +20,21 @@
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
         </dependency>
+        <!-- Jackson Json处理工具包 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
         <!-- Apache工具组件 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -34,17 +49,19 @@
             <artifactId>commons-net</artifactId>
         </dependency>
         <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+
+
+        <dependency>
         <groupId>fastdfs_client</groupId>
         <artifactId>fastdfs_client</artifactId>
         <version>1.25</version>
 
     </dependency>
 
-        <!-- Jackson Json处理工具包 -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
+
         <!-- httpclient -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>

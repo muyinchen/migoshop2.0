@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("item/param")
 public class ItemParamController {
-    private final Logger logger= LoggerFactory.getLogger(ItemParamController.class);
+    private final static Logger logger= LoggerFactory.getLogger(ItemParamController.class);
     @Autowired
     private ItemParmService itemParmService;
 
