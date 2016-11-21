@@ -74,7 +74,8 @@ public class ContentCategory extends BasePojo {
         this.isParent = isParent;
     }
 
-    // 扩展字段，用于EasyUI中tree结构
+    // 扩展字段，支持EasyUItree的显示,这样就可以避免再写一个第一版中的EasyuiTreeNode类，同时也省了第一版中
+    //在service中的一系列对easyuiTreeNode的处理
     public String getText() {
         return getName();
     }
