@@ -54,4 +54,78 @@ public class ContentCategoryController {
         }
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
     }
+
+    /**
+     * 新增节点
+     * @param contentCategory
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<ContentCategory> addContentCategery(ContentCategory contentCategory)
+    {
+        try {
+            if (logger.isInfoEnabled()){
+                logger.info("新增节点 contentCategory = {}",contentCategory);
+            }
+            //补全字段
+            contentCategory.setId(null);
+            contentCategory.setIsParent(false);
+            contentCategory.setSortOrder(1);
+            contentCategory.setStatus(1);
+            this.contentCategoryService.save(contentCategory);
+
+            //新增节点后可能会改变父节点的状态isParent
+            ContentCategory parent = this.contentCategoryService.queryById(contentCategory.getParentId());
+            if (!parent.getIsParent()) {
+
+                parent.setIsParent(true);
+                this.contentCategoryService.updateSelective(parent);
+            }
+            return ResponseEntity.status(HttpStatus.CREATED).body(contentCategory);
+        } catch (Exception e) {
+           logger.error("新增节点 服务器傲娇了 contentCategory = {}",contentCategory,e);
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+    }
+
+    /**
+     * 修改节点
+     * @param contentCategory
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.PUT)
+    public ResponseEntity<Void> updateContentCategery(ContentCategory contentCategory){
+        try {
+            if (logger.isInfoEnabled()){
+                logger.info("修改节点 contentCategory = {}",contentCategory);
+            }
+            this.contentCategoryService.updateSelective(contentCategory);
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } catch (Exception e) {
+           logger.error("修改节点 服务器傲娇了 contentCategory = {}",contentCategory,e);
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
+    /**
+     * 删除节点
+     * @param contentCategory
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.DELETE)
+    public ResponseEntity<Void> delete(ContentCategory contentCategory){
+        try {
+            if (logger.isInfoEnabled()){
+                logger.info("删除节点 contentCategory = {}",contentCategory);
+            }
+            this.contentCategoryService.deleteDuDu(contentCategory);
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } catch (Exception e) {
+
+            logger.error("删除节点 服务器傲娇了 contentCategory = {}",contentCategory,e);
+        }
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
+
 }
