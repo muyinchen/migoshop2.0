@@ -3,7 +3,11 @@ package com.migo.service;
 import com.migo.pojo.CatNode;
 import com.migo.pojo.ItemCat;
 import com.migo.pojo.ItemCatResult;
+import com.migo.utils.JsonUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +18,12 @@ import java.util.List;
  */
 @Service
 public class ItemCatService extends BaseService<ItemCat> {
-   /* @Autowired
+    @Autowired
+    private JedisClient jedisClient;
+    private static final String REDIS_KEY = "MIGO_MANAGE_ITEM_CAT_LIST"; // 规则：项目名_模块名_业务名
+    private static final Integer REDIS_TIME = 60 * 60 * 24 * 30 * 3;
+
+    /* @Autowired
     private ItemCatMapper itemCatMapper;
 
 
@@ -29,6 +38,18 @@ public class ItemCatService extends BaseService<ItemCat> {
      * @return
      */
     public ItemCatResult getItemCatList(){
+
+        try {
+            // 从缓存中命中，如果命中返回，没有命中继续查询
+            String jsonData = jedisClient.get(REDIS_KEY);
+            if (StringUtils.isNotEmpty(jsonData)) {
+                return JsonUtils.jsonToPojo(jsonData,ItemCatResult.class);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
         ItemCatResult itemCatResult=new ItemCatResult();
 
         //调用递归方法查询商品分类列表
@@ -71,6 +92,12 @@ public class ItemCatService extends BaseService<ItemCat> {
                 String item = "/products/"+itemCat.getId()+".html|" + itemCat.getName();
                 resultList.add(item);
             }
+        }
+        try {
+            //将结果集写入到Redis中
+            this.jedisClient.set(REDIS_KEY,JsonUtils.objectToJson(resultList),REDIS_TIME);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return resultList;
     }
