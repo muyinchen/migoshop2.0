@@ -295,8 +295,7 @@
 	</div><!--right end-->
 	
 	<div class="left">
-		<div id="miaozhen7886" class="m"><a href="http://c.nfa.jd.com/adclick?sid=2&amp;cid=163&amp;aid=817&amp;bid=7853&amp;unit=69570&amp;advid=156740&amp;guv=&amp;url=http://sale.jd.com/act/IFkpQYSVnG1Jet.html" target="_blank"><img data-img="2" width="211" height="261" src="http://image.migo.com/images/2014/10/23/2014102305423212301343.jpg" class="loading-style2"></a></div>
-		<div id="miaozhen7886" class="m"><a href="http://c.nfa.jd.com/adclick?sid=2&amp;cid=163&amp;aid=817&amp;bid=7853&amp;unit=69570&amp;advid=156740&amp;guv=&amp;url=http://sale.jd.com/act/IFkpQYSVnG1Jet.html" target="_blank"><img data-img="2" width="211" height="261" src="http://image.migo.com/images/2014/10/23/2014102305423212301343.jpg" class="loading-style2"></a></div>
+		
 	</div><!--left end-->
 	<span class="clr"></span>
 </div>

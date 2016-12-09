@@ -10,7 +10,10 @@ import com.migo.pojo.Item;
 import com.migo.pojo.ItemDesc;
 import com.migo.pojo.ItemParamItem;
 import com.migo.utils.IDUtils;
+import com.migo.utils.JsonUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -22,6 +25,14 @@ import java.util.List;
  */
 @Service
 public class ItemService extends BaseService<Item> {
+    @Value("${REDIS_KEY}")
+    private String REDIS_KEY;
+    @Value("${REDIS_TIME}")
+    private Integer REDIS_TIME;
+    private static final String ITEM_DETAIL_KEY = ":ITEM_DETAIL";
+    @Autowired
+    private JedisClient jedisClient;
+
     @Autowired
     private ItemMapper itemMapper;
     @Autowired
@@ -102,5 +113,29 @@ public class ItemService extends BaseService<Item> {
 
         return change1.intValue()==1&&change2.intValue()==1&&change3.intValue()==1;
 
+    }
+
+    public Item queryByIdse(Long itemId) {
+        String key=REDIS_KEY+":"+itemId+ITEM_DETAIL_KEY;
+        //添加缓存逻辑
+        try {
+            String jsonData = jedisClient.get(key);
+            if (StringUtils.isNotEmpty(jsonData)){
+                return JsonUtils.jsonToPojo(jsonData,Item.class);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        Item item = super.queryById(itemId);
+
+        //数据加入缓存
+        try {
+            jedisClient.set(key,JsonUtils.objectToJson(item),REDIS_TIME);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return item;
     }
 }
