@@ -111,7 +111,7 @@ function addToFavorite() {
             <input type="hidden" name="verifymc" id="verifymc" value=""/>
             <input type="hidden" name="emailMg" id="emailMg"/>
             <input type="hidden" name="authcodeMg" id="authcodeMg"/>
-            <input type="hidden" name="state" id="state" value=""/>
+            <input type="hidden" name="state" id="state" value="unbind"/>
 
             <div class="form" onselectstart="return false;">
                 <div class="item" id="select-regName">
@@ -203,7 +203,7 @@ function addToFavorite() {
                         </div>
 						                    </div>
 					<!-- 
-                    <div id="mobileCodeDiv" class="item hide" style="height: 62px;">
+                    <div id="mobileCodeDiv" class="item" style="height: 62px;">
                         <span class="label"><b class="ftx04">*</b>短信验证码：</span>
 
                         <div class="fl item-ifo">
@@ -295,7 +295,7 @@ function addToFavorite() {
         </div>
     </div>
 
-    <div class="item " id="mobileCodeDiv1">
+    <div class="item" id="mobileCodeDiv1">
         <span class="label"><b class="ftx04">*</b>短信验证码：</span>
 
         <div class="fl item-ifo">

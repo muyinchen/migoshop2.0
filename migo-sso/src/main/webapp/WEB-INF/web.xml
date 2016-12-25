@@ -44,6 +44,10 @@
         <servlet-name>migo-sso</servlet-name>
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>migo-sso</servlet-name>
+        <url-pattern>/do/*</url-pattern>
+    </servlet-mapping>
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

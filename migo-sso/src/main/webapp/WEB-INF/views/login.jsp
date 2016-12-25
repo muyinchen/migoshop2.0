@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
-    <title>登录咪购</title>
+    <title>登录咪购</title>HiddenHttpMethodFilter
     <link type="text/css" rel="stylesheet" href="${baseUrl }/css/login.css"/>
     <script type="text/javascript" src="${baseUrl }/js/jquery-1.2.6.min.js"></script>
     <script type="text/javascript" src="${baseUrl }/js/login/g.base.js"></script>
