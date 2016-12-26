@@ -1,20 +1,19 @@
 var TT = migo = {
 	checkLogin : function(){
-		var _ticket = $.cookie("TT_TICKET");
-		if(!_ticket){
+		var _token = $.cookie("MG_TOKEN");
+		if(!_token){
 			return ;
 		}
 		$.ajax({
-			url : "http://sso.migo.com/user/query/" + _ticket,
+			url : "http://sso.migo.com/do/user/" + _token,
 			dataType : "jsonp",
 			type : "GET",
 			success : function(data){
-				if(data.status == 200){
-					var _data = JSON.parse(data.data);
-					var html =_data.username+"，欢迎来到咪购！<a href=\"http://www.migo.com/user/logout.html\" class=\"link-logout\">[退出]</a>";
+					var html =data.username+"，欢迎来到咪购！<a href=\"http://www.migo.com/user/logout.html\" class=\"link-logout\">[退出]</a>";
 					$("#loginbar").html(html);
 				}
-			}
+
+
 		});
 	}
 }
