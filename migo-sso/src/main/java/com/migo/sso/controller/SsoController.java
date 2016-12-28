@@ -99,11 +99,21 @@ public class SsoController {
             if (logger.isInfoEnabled()){
                 logger.info("注册用户 user = {}", user);
             }
+
             if (bindingResult.hasErrors()){
+
+
                 List<String> megs=new ArrayList<>();
                 List<ObjectError> allErrors = bindingResult.getAllErrors();
-
+                //一种实现，两种写法，都可以使用
+                //  allErrors.stream().map(ObjectError::getDefaultMessage).forEach(megs::add);
+               // allErrors.stream().parallel().map(ObjectError::getDefaultMessage).forEach(megs::add);
+               // allErrors.forEach(objectError -> megs.add(objectError.getDefaultMessage()));
                 allErrors.stream().forEach(objectError->megs.add(objectError.getDefaultMessage()));
+                //List<String> collect = allErrors.stream().map(ObjectError::getDefaultMessage).collect(Collectors.toList());
+                //String collect = allErrors.stream().
+                //                map(ObjectError::getDefaultMessage).
+                //                collect(Collectors.joining("|"));
                 map.put("status","401");
                 map.put("data", StringUtils.join(megs,"|"));
                 return map;
