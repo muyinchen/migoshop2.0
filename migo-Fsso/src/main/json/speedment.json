@@ -1,0 +1,1343 @@
+{
+  "config" : {
+    "expanded" : true,
+    "companyName" : "company",
+    "name" : "migo2",
+    "packageLocation" : "src/main/java/",
+    "packageName" : "com.migo2.sso",
+    "dbmses" : [
+      {
+        "expanded" : true,
+        "port" : 3306,
+        "schemas" : [
+          {
+            "tables" : [
+              {
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : false,
+                    "name" : "id",
+                    "ordinalPosition" : 1
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "id",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "category_id",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "category_id",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "updated",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "updated",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "enabled" : true
+                  }
+                ],
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "autoIncrement" : true,
+                    "name" : "id",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "category_id",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "title",
+                    "ordinalPosition" : 3,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "sub_title",
+                    "ordinalPosition" : 4,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "title_desc",
+                    "ordinalPosition" : 5,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "url",
+                    "ordinalPosition" : 6,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "pic",
+                    "ordinalPosition" : 7,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "pic2",
+                    "ordinalPosition" : 8,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "content",
+                    "ordinalPosition" : 9,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "created",
+                    "ordinalPosition" : 10,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "updated",
+                    "ordinalPosition" : 11,
+                    "enabled" : true
+                  }
+                ],
+                "name" : "tb_content",
+                "enabled" : false
+              },
+              {
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : false,
+                    "name" : "id",
+                    "ordinalPosition" : 1
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "id",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "parent_id",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "parent_id",
+                        "ordinalPosition" : 1
+                      },
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "status",
+                        "ordinalPosition" : 2
+                      }
+                    ],
+                    "enabled" : true
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "sort_order",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "sort_order",
+                        "ordinalPosition" : 1
+                      }
+                    ],
+                    "enabled" : true
+                  }
+                ],
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "autoIncrement" : true,
+                    "name" : "id",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "parent_id",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "name",
+                    "ordinalPosition" : 3,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "status",
+                    "ordinalPosition" : 4,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "sort_order",
+                    "ordinalPosition" : 5,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "is_parent",
+                    "ordinalPosition" : 6,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "created",
+                    "ordinalPosition" : 7,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "updated",
+                    "ordinalPosition" : 8,
+                    "enabled" : true
+                  }
+                ],
+                "name" : "tb_content_category",
+                "enabled" : false
+              },
+              {
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : false,
+                    "name" : "id",
+                    "ordinalPosition" : 1
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "id",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "cid",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "cid",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "status",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "status",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "updated",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "updated",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  }
+                ],
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "id",
+                    "ordinalPosition" : 1,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "title",
+                    "ordinalPosition" : 2,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "sell_point",
+                    "ordinalPosition" : 3,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "price",
+                    "ordinalPosition" : 4,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "num",
+                    "ordinalPosition" : 5,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "barcode",
+                    "ordinalPosition" : 6,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "image",
+                    "ordinalPosition" : 7,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "cid",
+                    "ordinalPosition" : 8,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.lang.Byte",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "status",
+                    "ordinalPosition" : 9,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "created",
+                    "ordinalPosition" : 10,
+                    "enabled" : true
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "updated",
+                    "ordinalPosition" : 11
+                  }
+                ],
+                "name" : "tb_item",
+                "enabled" : false
+              },
+              {
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : false,
+                    "name" : "id",
+                    "ordinalPosition" : 1
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "id",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "parent_id",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "parent_id",
+                        "ordinalPosition" : 1
+                      },
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "status",
+                        "ordinalPosition" : 2
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "sort_order",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "sort_order",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  }
+                ],
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "autoIncrement" : true,
+                    "name" : "id",
+                    "ordinalPosition" : 1
+                  },
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "parent_id",
+                    "ordinalPosition" : 2
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "name",
+                    "ordinalPosition" : 3
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "status",
+                    "ordinalPosition" : 4
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "sort_order",
+                    "ordinalPosition" : 5
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "is_parent",
+                    "ordinalPosition" : 6
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "created",
+                    "ordinalPosition" : 7
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "updated",
+                    "ordinalPosition" : 8
+                  }
+                ],
+                "name" : "tb_item_cat",
+                "enabled" : false
+              },
+              {
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : false,
+                    "name" : "item_id",
+                    "ordinalPosition" : 1
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "item_id",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  }
+                ],
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "item_id",
+                    "ordinalPosition" : 1
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "item_desc",
+                    "ordinalPosition" : 2
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "created",
+                    "ordinalPosition" : 3
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "updated",
+                    "ordinalPosition" : 4
+                  }
+                ],
+                "name" : "tb_item_desc",
+                "enabled" : false
+              },
+              {
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : false,
+                    "name" : "id",
+                    "ordinalPosition" : 1
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "id",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "item_cat_id",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "item_cat_id",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  }
+                ],
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "autoIncrement" : true,
+                    "name" : "id",
+                    "ordinalPosition" : 1
+                  },
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "item_cat_id",
+                    "ordinalPosition" : 2
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "param_data",
+                    "ordinalPosition" : 3
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "created",
+                    "ordinalPosition" : 4
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "updated",
+                    "ordinalPosition" : 5
+                  }
+                ],
+                "name" : "tb_item_param",
+                "enabled" : false
+              },
+              {
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : false,
+                    "name" : "id",
+                    "ordinalPosition" : 1
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "id",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "item_id",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "item_id",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  }
+                ],
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "autoIncrement" : true,
+                    "name" : "id",
+                    "ordinalPosition" : 1
+                  },
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "item_id",
+                    "ordinalPosition" : 2
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "param_data",
+                    "ordinalPosition" : 3
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "created",
+                    "ordinalPosition" : 4
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "updated",
+                    "ordinalPosition" : 5
+                  }
+                ],
+                "name" : "tb_item_param_item",
+                "enabled" : false
+              },
+              {
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : false,
+                    "name" : "order_id",
+                    "ordinalPosition" : 1
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "order_id",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "buyer_nick",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "buyer_nick",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "create_time",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "create_time",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "payment_type",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "payment_type",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "status",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "status",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  }
+                ],
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "order_id",
+                    "ordinalPosition" : 1
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "payment",
+                    "ordinalPosition" : 2
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "payment_type",
+                    "ordinalPosition" : 3
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "post_fee",
+                    "ordinalPosition" : 4
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "status",
+                    "ordinalPosition" : 5
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "create_time",
+                    "ordinalPosition" : 6
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "update_time",
+                    "ordinalPosition" : 7
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "payment_time",
+                    "ordinalPosition" : 8
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "consign_time",
+                    "ordinalPosition" : 9
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "end_time",
+                    "ordinalPosition" : 10
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "close_time",
+                    "ordinalPosition" : 11
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "shipping_name",
+                    "ordinalPosition" : 12
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "shipping_code",
+                    "ordinalPosition" : 13
+                  },
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "user_id",
+                    "ordinalPosition" : 14
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "buyer_message",
+                    "ordinalPosition" : 15
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "buyer_nick",
+                    "ordinalPosition" : 16
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "buyer_rate",
+                    "ordinalPosition" : 17
+                  }
+                ],
+                "name" : "tb_order",
+                "enabled" : false
+              },
+              {
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : false,
+                    "name" : "id",
+                    "ordinalPosition" : 1
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "id",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "item_id",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "item_id",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : false,
+                    "name" : "order_id",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "order_id",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  }
+                ],
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "id",
+                    "ordinalPosition" : 1
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "item_id",
+                    "ordinalPosition" : 2
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "order_id",
+                    "ordinalPosition" : 3
+                  },
+                  {
+                    "databaseType" : "java.lang.Integer",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "num",
+                    "ordinalPosition" : 4
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "title",
+                    "ordinalPosition" : 5
+                  },
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "price",
+                    "ordinalPosition" : 6
+                  },
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "total_fee",
+                    "ordinalPosition" : 7
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "pic_path",
+                    "ordinalPosition" : 8
+                  }
+                ],
+                "name" : "tb_order_item",
+                "enabled" : false
+              },
+              {
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : false,
+                    "name" : "order_id",
+                    "ordinalPosition" : 1
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "order_id",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  }
+                ],
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "order_id",
+                    "ordinalPosition" : 1
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "receiver_name",
+                    "ordinalPosition" : 2
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "receiver_phone",
+                    "ordinalPosition" : 3
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "receiver_mobile",
+                    "ordinalPosition" : 4
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "receiver_state",
+                    "ordinalPosition" : 5
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "receiver_city",
+                    "ordinalPosition" : 6
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "receiver_district",
+                    "ordinalPosition" : 7
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "receiver_address",
+                    "ordinalPosition" : 8
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "receiver_zip",
+                    "ordinalPosition" : 9
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "created",
+                    "ordinalPosition" : 10
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "updated",
+                    "ordinalPosition" : 11
+                  }
+                ],
+                "name" : "tb_order_shipping",
+                "enabled" : false
+              },
+              {
+                "expanded" : false,
+                "primaryKeyColumns" : [
+                  {
+                    "expanded" : false,
+                    "name" : "id",
+                    "ordinalPosition" : 1
+                  }
+                ],
+                "indexes" : [
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "email",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "email",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "phone",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "phone",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "PRIMARY",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "id",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  },
+                  {
+                    "expanded" : false,
+                    "unique" : true,
+                    "name" : "username",
+                    "indexColumns" : [
+                      {
+                        "orderType" : "ASC",
+                        "expanded" : false,
+                        "name" : "username",
+                        "ordinalPosition" : 1
+                      }
+                    ]
+                  }
+                ],
+                "columns" : [
+                  {
+                    "databaseType" : "java.lang.Long",
+                    "typeMapper" : "com.speedment.runtime.typemapper.primitive.PrimitiveTypeMapper",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "autoIncrement" : true,
+                    "name" : "id",
+                    "ordinalPosition" : 1
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "username",
+                    "ordinalPosition" : 2
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "password",
+                    "ordinalPosition" : 3
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "phone",
+                    "ordinalPosition" : 4
+                  },
+                  {
+                    "databaseType" : "java.lang.String",
+                    "expanded" : false,
+                    "nullable" : true,
+                    "name" : "email",
+                    "ordinalPosition" : 5
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "created",
+                    "ordinalPosition" : 6
+                  },
+                  {
+                    "databaseType" : "java.sql.Timestamp",
+                    "expanded" : false,
+                    "nullable" : false,
+                    "name" : "updated",
+                    "ordinalPosition" : 7
+                  }
+                ],
+                "name" : "tb_user",
+                "alias" : "user",
+                "packageName" : "com.migo2.sso.pojo",
+                "enabled" : true
+              }
+            ],
+            "expanded" : true,
+            "name" : "migo2",
+            "enabled" : true
+          }
+        ],
+        "typeName" : "MySQL",
+        "ipAddress" : "127.0.0.1",
+        "name" : "db0",
+        "enabled" : true,
+        "username" : "root"
+      }
+    ],
+    "enabled" : true
+  }
+
+}
