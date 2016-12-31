@@ -10,7 +10,7 @@
 
 ##### 2016.12.31:
 
-##### 2016最后一天，当然要来点猛料，添加sso番外版使用Springboot+全新的ORM框架speedment来改写，并使用thymeleaf静态模板页，关于speedment，网上资料很少，全是自己踩坑实现，对于cookie处理这块因为tomcat版本问题出现了不兼容，新的工具类已经实现，等2.0完全迭代完事之后，会和3.0一起放出
+##### 2016最后一天，当然要来点猛料，添加sso番外版migo-Fsso,使用Springboot+全新的ORM框架speedment来改写，并使用thymeleaf静态模板页，关于speedment，网上资料很少，全是自己踩坑实现，对于cookie处理这块因为tomcat版本问题出现了不兼容，新的工具类已经实现，等2.0完全迭代完事之后，会和3.0一起放出
 
 
 
