@@ -5,6 +5,7 @@ import com.migo.utils.JsonUtils;
 import com.migo3.sso.pojo.User;
 import com.migo3.sso.pojo.UserImpl;
 import com.migo3.sso.pojo.UserManager;
+import com.speedment.runtime.field.StringField;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,6 @@ public class UserService {
     public Boolean doRegister(UserImpl user) {
         Date date=new Date();
         Timestamp time = new Timestamp(date.getTime());
-
 
         user.setCreated(time);
         user.setUpdated(time);
@@ -61,6 +61,7 @@ public class UserService {
                 .filter(User.USERNAME.equal(username))
                 .filter(User.PASSWORD.equal(DigestUtils.sha256Hex(password)))
                 .findAny().orElse(null);
+
         //生成token
         String token=DigestUtils.md5Hex(System.currentTimeMillis()+username);
 
@@ -69,10 +70,25 @@ public class UserService {
     }
 
     public Boolean check(String param, Integer type) {
-        if (type==1)return userManager.stream().filter(User.USERNAME.equal(param)).findAny().orElse(null)!=null;
+        StringField<User, String> userparam;
+        switch (type){
+            case 1:
+                userparam = User.USERNAME;
+                break;
+            case 2:
+                userparam=User.PHONE;
+                break;
+            case 3:
+                userparam=User.EMAIL;
+                break;
+            default:
+                return null;
+        }
+        return null!= userManager.stream().filter(userparam.equal(param)).findAny().orElse(null);
+       /* if (type==1)return userManager.stream().filter(User.USERNAME.equal(param)).findAny().orElse(null)!=null;
         else if(type==2) return  userManager.stream().filter(User.PHONE.equal(param)).findAny().orElse(null)!=null;
         else if (type==3) return userManager.stream().filter(User.EMAIL.equal(param)).findAny().orElse(null)!=null;
-        else return null;
+        else return null;*/
 
 
 
