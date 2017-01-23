@@ -114,6 +114,7 @@ public class SsoController {
                 //allErrors.stream().forEach(objectError->megs.add(objectError.getDefaultMessage()));
                 //List<String> collect = allErrors.stream().map(ObjectError::getDefaultMessage).collect(Collectors.toList());
                 String collect = allErrors.stream().
+                                parallel().
                                 map(ObjectError::getDefaultMessage).
                                 collect(Collectors.joining("|"));
                 map.put("status","401");

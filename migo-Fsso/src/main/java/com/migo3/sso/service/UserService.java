@@ -84,7 +84,10 @@ public class UserService {
             default:
                 return null;
         }
-        return null!= userManager.stream().filter(userparam.equal(param)).findAny().orElse(null);
+        return null!= userManager.stream()
+                .filter(userparam.equal(param))
+                .findAny()
+                .orElse(null);
        /* if (type==1)return userManager.stream().filter(User.USERNAME.equal(param)).findAny().orElse(null)!=null;
         else if(type==2) return  userManager.stream().filter(User.PHONE.equal(param)).findAny().orElse(null)!=null;
         else if (type==3) return userManager.stream().filter(User.EMAIL.equal(param)).findAny().orElse(null)!=null;
